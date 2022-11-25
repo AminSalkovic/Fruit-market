@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState,useEffect} from 'react'
+import Axios from 'axios'
+import Card from './components/Card'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Reactss
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [card,setCard]=useState(false)
+    const[users,setUsers]=useState([])
+    
+    const getData=()=>{
+        Axios.get(`https://api.github.com/users/AminSalkovic`)
+        .then((res)=>setUsers(res.data))
+        .catch((er)=>console.log(er))
+    }
+
+    useEffect(()=>{
+       getData()
+    },[])
+    return (
+    <>
+    <button onClick={()=>{setCard(!card)}}> click</button>
+    {card && <Card/>}
+       
+    </>
+  )
 }
 
-export default App;
+export default App
