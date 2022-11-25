@@ -1,8 +1,10 @@
 import React from 'react'
-
-const Card = () => {
+import './Card.css'
+const Card = ({closebutton}) => {
   return (
-    <div>Card</div>
+    <div className='card'>
+        <button onClick={()=>{closebutton((prev)=>!prev)}} >close</button>
+    </div>
   )
 }
 

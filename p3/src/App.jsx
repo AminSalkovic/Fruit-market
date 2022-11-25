@@ -17,8 +17,17 @@ const App = () => {
     },[])
     return (
     <>
+       {users.map((user) => {
+        return (
+          <div style={{ backgroundImage: `url(${user?.avatar_url})` }}>
+            <h1>{user?.name}</h1>
+          </div>
+        );
+      })}
     <button onClick={()=>{setCard(!card)}}> click</button>
-    {card && <Card/>}
+    {card && <Card
+     closebutton={setCard}
+    />}
        
     </>
   )
