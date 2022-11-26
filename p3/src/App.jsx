@@ -1,35 +1,50 @@
-import React,{useState,useEffect} from 'react'
-import Axios from 'axios'
-import Card from './components/Card'
+import axios from 'axios'
+import React from 'react'
+import InfiniteScroll from 'react-infinite-scroll-component'
+import { useEffect } from 'react'
+import { useState } from 'react'
 
-const App = () => {
-    const [card,setCard]=useState(false)
-    const[users,setUsers]=useState([])
-    
-    const getData=()=>{
-        Axios.get(`https://api.github.com/users/AminSalkovic`)
-        .then((res)=>setUsers(res.data))
-        .catch((er)=>console.log(er))
+ const App = () => {
+    const LIMIT =7
+    const [data,setData]=useState([])
+    const [postData,setPostData]=useState(data.slice(0,LIMIT))
+    const [visible,setVisible]=useState(LIMIT)
+    const [hasMore,setHasMore]=useState(true)
+
+    const fetchData=()=>{
+        const newLimit=visible+LIMIT
+        const dataToAdd=data.slice(visible,newLimit)
+        if(data.length>postData.length){
+            setTimeout(()=>{
+                setPostData([...postData].concat(dataToAdd))
+            },2000);
+            setVisible(newLimit)
+        }else{
+            setHasMore(false)
+        }
     }
 
     useEffect(()=>{
-       getData()
+        axios.get(`https://disease.sh/v3/covid-19/countries/`)
+        .then((res)=>setData(res.data))
+        .catch((er)=>console.log(er))
     },[])
-    return (
-    <>
-       {users.map((user) => {
-        return (
-          <div style={{ backgroundImage: `url(${user?.avatar_url})` }}>
-            <h1>{user?.name}</h1>
-          </div>
-        );
-      })}
-    <button onClick={()=>{setCard(!card)}}> click</button>
-    {card && <Card
-     closebutton={setCard}
-    />}
-       
-    </>
+  return (
+    <div>
+        <InfiniteScroll
+        dataLength={data.length}
+        next={fetchData}
+        hasMore={hasMore}
+        >
+      
+        {data.map((item)=>{
+            return(
+                <h1>{item.country}</h1>
+                )
+            })}
+        
+            </InfiniteScroll>
+    </div>
   )
 }
 
