@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React from 'react'
+
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useEffect } from 'react'
 import { useState } from 'react'
@@ -39,7 +40,11 @@ import { useState } from 'react'
       
         {data.map((item)=>{
             return(
-                <h1>{item.country}</h1>
+                <li onClick={()=>{window.open(`https://en.wikipedia.org/wiki/${item.country}`)}}>
+                   <a href='/'>
+                     <h1>{item.country}</h1>
+                   </a>       
+                </li>
                 )
             })}
         
