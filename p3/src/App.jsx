@@ -1,56 +1,98 @@
-import axios from 'axios'
-import React from 'react'
 
-import InfiniteScroll from 'react-infinite-scroll-component'
-import { useEffect } from 'react'
+import React from 'react'
 import { useState } from 'react'
+import Karticalist from './components/Karticalist'
 
  const App = () => {
-    const LIMIT =7
-    const [data,setData]=useState([])
-    const [postData,setPostData]=useState(data.slice(0,LIMIT))
-    const [visible,setVisible]=useState(LIMIT)
-    const [hasMore,setHasMore]=useState(true)
-
-    const fetchData=()=>{
-        const newLimit=visible+LIMIT
-        const dataToAdd=data.slice(visible,newLimit)
-        if(data.length>postData.length){
-            setTimeout(()=>{
-                setPostData([...postData].concat(dataToAdd))
-            },2000);
-            setVisible(newLimit)
-        }else{
-            setHasMore(false)
+    
+    const[user,setUser]=useState([
+        {
+            email:'aminsalkovic2019',
+            password:'amin'
+        },
+        {
+            email:'saki',
+            password:'saki'
         }
-    }
+    ])
 
-    useEffect(()=>{
-        axios.get(`https://disease.sh/v3/covid-19/countries/`)
-        .then((res)=>setData(res.data))
-        .catch((er)=>console.log(er))
-    },[])
-  return (
-    <div>
-        <InfiniteScroll
-        dataLength={data.length}
-        next={fetchData}
-        hasMore={hasMore}
-        >
-      
-        {data.map((item)=>{
-            return(
-                <li onClick={()=>{window.open(`https://en.wikipedia.org/wiki/${item.country}`)}}>
-                   <a href='/'>
-                     <h1>{item.country}</h1>
-                   </a>       
-                </li>
-                )
-            })}
+     const addUser=(text)=>{
+           const newUser={
+            email:text,
+            password:text
+           }
+           const newUsers=[...user,newUser];
+           setUser(newUsers)
+     }
+     return(
+        <>
+
+          <Karticalist
+            users={user}
+            handleAddUser={addUser}
+          />
         
-            </InfiniteScroll>
-    </div>
-  )
+        </>
+     )
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     const [data,setData]=useState([])
+    
+
+//     useEffect(()=>{
+//         axios.get(`https://disease.sh/v3/covid-19/countries/`)
+//         .then((res)=>setData(res.data))
+//         .catch((er)=>console.log(er))
+//     },[])
+//   return (
+//     <div>
+   
+      
+//         {data.map((item)=>{
+//             return(
+//                 <li onClick={()=>{window.open(`https://en.wikipedia.org/wiki/${item.country}`)}}>
+//                    <a href='/'>
+//                      <h1>{item.country}</h1>
+//                    </a>       
+//                 </li>
+//                 )
+//             })}
+        
+            
+//     </div>
+//   )
 }
 
 export default App
