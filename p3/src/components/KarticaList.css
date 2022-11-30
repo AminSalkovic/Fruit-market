@@ -1,0 +1,4 @@
+.karticalist{
+    display: flex;
+    flex-wrap: wrap;
+}

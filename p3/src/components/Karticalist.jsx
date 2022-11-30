@@ -1,21 +1,24 @@
 import React from 'react'
 import AddUser from './AddUser'
 import Kartica from './Kartica'
+import './KarticaList.css'
 
-const Karticalist = ({users,handleAddUser}) => {
+const Karticalist = ({users,handleAddUser,deleteUserEmail}) => {
   return (
-      <>
-        {users.map((items)=>{
+      <div className='karticalist'>
+      {console.log(users)}
+        {users.map((items,key)=>{
             return(
-                <Kartica
+                <Kartica key={key}
+                id={items.id}
                 email={items.email}
                 password={items.password}
-                handleAddUser={handleAddUser}
+                deleteUserEmail={deleteUserEmail}
                 />
             )
         })}
-        <AddUser/>
-      </>
+        <AddUser handleAddUser={handleAddUser}/>
+      </div>
   )
 }
 
