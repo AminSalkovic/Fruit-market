@@ -2,6 +2,7 @@ import {nanoid} from 'nanoid'
 import React from 'react'
 import { useState } from 'react'
 import Karticalist from './components/Karticalist'
+import Search from './components/Search'
 
 
  const App = () => {
@@ -12,14 +13,14 @@ import Karticalist from './components/Karticalist'
 
   
     const[user,setUser]=useState([
-        // {    id:nanoid(),
-        //     email:'aminsalkovic2019',
-        //     password:'amin'
-        // },
-        // {   id:nanoid(),
-        //     email:'saki',
-        //     password:'saki'
-        // },
+        {    id:nanoid(),
+            email:'aminsalkovic2019',
+            password:'amin'
+        },
+        {   id:nanoid(),
+            email:'saki',
+            password:'saki'
+        },
     ])
 
      const addUserEmail=(text,password)=>{
@@ -29,19 +30,18 @@ import Karticalist from './components/Karticalist'
             id:nanoid()
            }
            const newUsers=[...user,newUser];
-           setUser(newUsers)
-
-     }
+           setUser(newUsers) 
+        }
      
     const deleteUserEmail=(id)=>{
         const newUsers=user.filter((item)=>item.id!== id)
         setUser(newUsers)
-
     }
+    
      return(
         <>
-
-          <Karticalist
+          
+          <Karticalist 
             users={user}
             handleAddUser={addUserEmail}
             deleteUserEmail={deleteUserEmail}
