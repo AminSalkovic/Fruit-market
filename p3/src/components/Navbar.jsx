@@ -3,6 +3,7 @@ import styled,{css} from 'styled-components/macro'
 import { Link } from 'react-router-dom'
 import { menuData } from '../data/MenuData'
 import {Button} from './Button';
+import {FaBars} from 'react-icons/fa'
 
 const Nav=styled.nav`
   background:#000;
@@ -10,6 +11,7 @@ const Nav=styled.nav`
   height:60px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 1rem 2rem;
   position: fixed;
   z-index: 100;
@@ -26,10 +28,23 @@ const Logo=styled(Link)`
    ${NavLinks}
    font-style: italic;
 `;
-const MenuBars=styled.a``;
+const MenuBars=styled(FaBars)`
+  display: none;
+  
+  @media screen and (max-width:768px){
+      display: block;
+      color: white;
+      cursor: pointer;
+  }
+`;
+
 const NavMenu=styled.div`
   display: flex;
   align-items: center;
+  margin-right:-48px;
+  @media screen and (max-width:768px){
+     display: none;
+  }
 `;
 
 const NavMenuLinks=styled(Link)`
@@ -38,28 +53,31 @@ const NavMenuLinks=styled(Link)`
 `;
 
 const NavBtn=styled.div`
-    
-`
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
+    @media screen and (max-width:768px){
+     display: none;
+  }
+`;
 
 
 const Navbar = () => {
   return (
     <Nav>
-       <Logo to='/'>Elix</Logo>
+       <Logo to='/'>ELXR</Logo>
        <MenuBars/>
-       <NavMenu>
-
-        {menuData.map((items,index) => {
-            return(
-                <NavMenuLinks to={items.link} key={index}>
-                     {items.title}
-                </NavMenuLinks>
-                )
-        })}
-
-       </NavMenu>
+            <NavMenu>
+                {menuData.map((items,index) => {
+                     return(
+                         <NavMenuLinks to={items.link} key={index}>
+                                {items.title}
+                          </NavMenuLinks>
+                          )
+                    })}
+            </NavMenu>
        <NavBtn>
-        <Button to='/contatc'>Contact Us</Button>
+        <Button to='/contatc' primary='true'>Contact Us</Button>
        </NavBtn>
     </Nav>
   )
