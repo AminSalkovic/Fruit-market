@@ -62,11 +62,11 @@ const NavBtn=styled.div`
 `;
 
 
-const Navbar = () => {
+const Navbar = ({toggle}) => {
   return (
     <Nav>
        <Logo to='/'>ELXR</Logo>
-       <MenuBars/>
+       <MenuBars onClick={toggle}/>
             <NavMenu>
                 {menuData.map((items,index) => {
                      return(
