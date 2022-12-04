@@ -7,6 +7,7 @@ import {FaBars} from 'react-icons/fa'
 
 const Nav=styled.nav`
   background:#000;
+  opacity: .4;
   width: 100%;
   height:60px;
   display: flex;

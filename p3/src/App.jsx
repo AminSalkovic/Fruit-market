@@ -4,6 +4,8 @@ import Navbar from './components/Navbar'
 import GlobalStyle from './globalStyles'
 import { SliderData } from './data/SliderData'
 import Dropdown from './components/Dropdown'
+import InfoSection from './components/InfoSection'
+import { InfoData } from './data/InfoData'
 
 
 const App = () => {
@@ -18,8 +20,9 @@ const App = () => {
     <>
      <GlobalStyle/>
         <Navbar toggle={toggle}/>
-        <Dropdown toggle={toggle} isOpen={setIsopen}/>
+        <Dropdown toggle={toggle} isOpen={isOpen}/>
         <Hero slides={SliderData}/>
+        <InfoSection {...InfoData}/>
     </>
   )
 }

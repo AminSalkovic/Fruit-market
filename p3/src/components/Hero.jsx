@@ -168,7 +168,8 @@ if(!Array.isArray(slides)|| slides.length <=0){
                                 <HeroContent>
                                     <h1>{slide.title}</h1>
                                     <p>{slide.price}</p>
-                                    <Button to={slide.path}   
+                                    <Button to={slide.path}
+                                      primary='true'   
                                     >
                                         {slide.label}
                                         <Arrow/>

@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { Button } from './Button';
 import { FaTimes } from 'react-icons/fa';
 
-//https://www.youtube.com/watch?v=sKs9FiAHSN4
 
 const DropdownContainer=styled.div`
     position: fixed;
@@ -15,7 +14,7 @@ const DropdownContainer=styled.div`
     background: #cd853f;
     display: grid;
     align-items: center;
-    top: ${(props)=>(props.isOpen==='true' ? '0' : '-100%')};
+    top:${({isOpen})=> (isOpen ? '0' : '-100%')} ;
     left: 0%;
     transition: 0.3s ease-in-out;
     opacity:${({isOpen})=>(isOpen ? '1' : '0')};
