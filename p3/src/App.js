@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import Todo from './components/Todo'
 import AddPostForm from './features/posts/AddPostForm'
 import PostList from './features/posts/PostList'
 // import {Routes,Route} from 'react-router-dom'
@@ -25,6 +26,7 @@ const App = () => {
      <GlobalStyle/>
        <PostList/>
        <AddPostForm/>
+       <Todo/>
         {/* <Navbar toggle={toggle}/>
         <Dropdown toggle={toggle} isOpen={isOpen}/>
         <Hero slides={SliderData}/>
