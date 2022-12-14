@@ -1,0 +1,28 @@
+[
+    {
+       "id":1,
+       "name":"book",
+       "price":1200,
+       "imgUrl":"/imgs/download.jpg"
+    },
+    
+    {
+        "id":2,
+        "name":"computer",
+        "price":1300,
+       "imgUrl":"/imgs/download.jpg"
+     },
+     
+    {
+        "id":3,
+        "name":"banana",
+        "price":100,
+       "imgUrl":"/imgs/download.jpg"
+     },
+     {
+        "id":5,
+        "name":"apple",
+        "price":200,
+       "imgUrl":"/imgs/download.jpg"
+     }
+]
