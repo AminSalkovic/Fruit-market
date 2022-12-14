@@ -1,6 +1,6 @@
-import { string } from "prop-types"
+
 import { Button, Card, Container,} from "react-bootstrap"
-import { formatCurrency } from "../utilities/FormatCurrency"
+import { formatCurrency } from "../utilities/formatCurrency"
 
 type StoreItemProps={
     id:number,
@@ -35,8 +35,8 @@ export function StoreItem({id,name,price,imgUrl}:StoreItemProps){
                             </Container>
                         <Button>+</Button>
                     </Container>
-                    <Button variant='danger' size='sm'>Remove</Button>
-              </Container>
+                       <Button variant='danger' size='sm'>Remove</Button>
+                    </Container>
               }
            </Container>
         </Card.Body>
