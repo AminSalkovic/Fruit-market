@@ -1,6 +1,7 @@
 export function About(){
     return (
         <>
-        amin</>
+        Amin Salkovic
+        </>
     )
 }

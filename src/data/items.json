@@ -1,28 +1,40 @@
 [
     {
        "id":1,
-       "name":"book",
-       "price":1200,
-       "imgUrl":"/imgs/download.jpg"
+       "name":"Oragnes",
+       "price":1.50,
+       "imgUrl":"/imgs/oranges.jpg"
     },
     
     {
         "id":2,
-        "name":"computer",
-        "price":1300,
-       "imgUrl":"/imgs/download.jpg"
+        "name":"Apples",
+        "price":0.8,
+       "imgUrl":"/imgs/apple.jpg"
      },
      
     {
         "id":3,
-        "name":"banana",
-        "price":100,
-       "imgUrl":"/imgs/download.jpg"
+        "name":"Bananas",
+        "price":1.9,
+       "imgUrl":"/imgs/bananas.jpg"
+     },
+     {
+        "id":4,
+        "name":"Strawberries",
+        "price":2.5,
+       "imgUrl":"/imgs/strawberries.jpg"
      },
      {
         "id":5,
-        "name":"apple",
-        "price":200,
-       "imgUrl":"/imgs/download.jpg"
+        "name":"Blueberries",
+         "price":2.2,
+        "imgUrl":"/imgs/blueberries.jpg"
+     },
+     {
+        "id":6,
+        "name":"Pears",
+        "price":1.4,
+        "imgUrl":"/imgs/pears.jpg"
      }
 ]

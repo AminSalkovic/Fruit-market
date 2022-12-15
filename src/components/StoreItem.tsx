@@ -27,7 +27,7 @@ export function StoreItem({id,name,price,imgUrl}:StoreItemProps){
              <Container className='ms-2 text-muted'>{formatCurrency(price)}</Container>
            </Card.Title>
            <div className="mt-auto">
-              {quantity === 0 ? <Button className='w-100'>+ Add To Card </Button> : <Container className='d-flex 
+              {quantity === 0 ? <Button onClick={()=>increaseCartQuantity(id)} className='w-100'>+ Add To Card </Button> : <Container className='d-flex 
                align-items-center flex-column' style={{gap:".5rem"}}>
                   
                     <Container className='d-flex align-items-center justify-content-center' style={{gap:".5rem"}} >
