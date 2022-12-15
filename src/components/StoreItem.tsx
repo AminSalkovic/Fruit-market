@@ -13,8 +13,7 @@ type StoreItemProps={
 export function StoreItem({id,name,price,imgUrl}:StoreItemProps){
      const {getItemQuantity,increaseCartQuantity,decreaseCartQuantity,removeFromCart}=useShoppingCart()
 
-    const quantity=3
-
+    const quantity= getItemQuantity(id)
    return( 
      
    <Card className='h-100'>
@@ -27,7 +26,7 @@ export function StoreItem({id,name,price,imgUrl}:StoreItemProps){
              <Container className='fs-2'>{name}</Container>
              <Container className='ms-2 text-muted'>{formatCurrency(price)}</Container>
            </Card.Title>
-           <Container >
+           <div className="mt-auto">
               {quantity === 0 ? <Button className='w-100'>+ Add To Card </Button> : <Container className='d-flex 
                align-items-center flex-column' style={{gap:".5rem"}}>
                   
@@ -41,7 +40,7 @@ export function StoreItem({id,name,price,imgUrl}:StoreItemProps){
                        <Button  onClick={()=> removeFromCart(id)} variant='danger' size='sm'>Remove</Button>
                     </Container>
               }
-           </Container>
+           </div>
         </Card.Body>
     </Card>
 
